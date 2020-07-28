@@ -1,0 +1,120 @@
+\documentclass[11pt,oneside]{article}
+
+\usepackage{amssymb, amsmath, amsfonts, amsthm, latexsym, enumitem}
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{ mathrsfs }
+%\usepackage{tikz-cd}
+%\usepackage[alphabetic]{amsrefs}
+%\usepackage{calrsfs}
+%\usepackage{graphicx}
+\usepackage{color}
+
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\Z{{\mathbb Z}}
+\def\C{{\mathbb C}}
+\def\S{{\mathbb S}}
+\def\N{{\mathbb N}}
+\def\H{{\mathbb H}}
+\def\F{{\mathbb F}}
+\def\PP{\mathbb P}
+\def\A{{\mathbb A}}
+\def\p{\partial}
+\def\O{\Omega}
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\G{\Gamma}
+\def\d{\delta}
+\def\D{\Delta}
+\def\e{\varepsilon}
+\def\r{\rho}
+\def\t{\tau}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\k{\kappa}
+\def\s{\sigma}
+\def\th{\theta}
+\def\o{\omega}
+\def\z{\zeta}
+\def\n{\nabla}
+\def\T{{\mathcal T}}
+\def\X{{\mathcal X}}
+\def\area{\mathrm{area}}
+\def\dist{\mathrm{\rm dist}}
+\def\diag{\mathrm{diag}}
+\def\spt{\mathrm{spt\,}}
+\def\diam{\mathrm{diam\,}}
+\def\dim{\mathrm{dim\,}}
+\def\graph{\mathrm{graph\,}}
+\def\interior{\mathrm{interior\,}}
+\def\diag{\mathrm{diag\,}}
+\def\Image{\mathrm{Image}\,}
+\def\osc{\mathop{\text{\rm osc}}}
+\def\id{\operatorname{id}}
+\def\im{\operatorname{im}}
+\def\ker{\operatorname{ker}}
+\def\rank{\operatorname{rank}}
+\def\dim{\operatorname{dim}}
+\def\Re{\operatorname{Re}}
+\def\Im{\operatorname{Im}}
+\def\Aut{\operatorname{Aut}}
+\def\Hom{\operatorname{Hom}}
+\def\End{\operatorname{End}}
+\def\GL{\operatorname{GL}}
+\def\SL{\operatorname{SL}}
+
+\def\suff{\implies}
+\def\notsuff{\centernot\suff}
+\def\nec{\impliedby}
+\def\notnec{\centernot\nec}
+
+\def\ra{\rightarrow}
+\def\rai{\rightarrow\infty}
+
+\newenvironment{solution}{\par\color{blue}\textbf{Solution:}}{\qed\color{black}}
+\newenvironment{Part}[1]{\par\color{blue}\textbf{Part #1: }}{\qed}
+\newenvironment{lemma}[1]{\par\color{blue}\textbf{Lemma#1: }}{}
+\newenvironment{lemmaproof}{\par\color{blue}\textbf{Proof: }}{\qed}
+\newenvironment{corollary}{\par\color{blue}\textbf{Corollary: }}
+
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\scshape}
+
+\overfullrule0pt 
+\hoffset=0cm
+\parskip=4pt
+\parindent=0pt
+\baselineskip=20pt
+
+\begin{document}
+
+2. Let $G = \Z$ and impose the following topology: $U \subseteq G$ is open if either $0 \notin U$ or $G - U$ is finite. Show that $G$ is \textit{not} a topological group with respect to this topology.
+
+\begin{proof}
+Suppose for sake of contradiction that $G$ is a topological group, and let $\tau : G \to G$ denote the map $a \mapsto a+1$, which is a homeomorphism of $G$. 
+
+Consider the set $U = \{-1\} \subseteq G$, which is open because $0 \notin U$. But $\tau(U) = \{0\}$ is not open because $0 \in \tau(U)$, and $G - \tau(U) = \Z -\{0\}$ is not finite. Since $\tau$ is a homeomorphism and hence an open map, this is a contradiction.
+\end{proof}
+
+4. Give an example of a topological group with a closed subgroup that is \textit{not} open.
+
+\begin{proof}
+Consider $G = \GL_n(\C)$. Then $H = \SL_n(\C)$ is a closed subgroup since it is the kernel of $\det : \GL_n(\C) \to \C$. However, it cannot be open because $G$ is connected, so cannot have a proper clopen subset.
+
+\end{proof}
+
+6. Let $G = \GL_n(\R)$. Show that $G^0$ is the set of $n \times n$ matrices with positive determinant.
+
+\begin{proof}
+Let $G^+$ and $G^-$ denote the $n \times n$ invertible matrices with positive and negative determinant respectively. Observe that $G^+$ is homeomorphic to $G^-$ via the map which is multiplication by
+\[ \left( \begin{matrix} 
+-1 & 0 & ... & 0 \\
+0 & 1 & ... & 0 \\
+\vdots & 0 & \ddots & 0 \\
+0 & 0 & ... & 1
+\end{matrix} \right). \]
+Hence it suffices to show that $G^+$ is connected, so that $G^+$ and $G^-$ are the connected components of $G$. Clearly $e \in G^+$, so we then have $G^0 = G^+$.
+\end{proof}
+
+\end{document}
